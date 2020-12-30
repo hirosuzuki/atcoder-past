@@ -30,7 +30,7 @@ class UnionFind:
 
 def solve(N: int, M: int, XYC: List[List[int]], SXYC: List[List[int]]):
 
-    def calc(XYC: List[List[int]]):
+    def calc(XYC: List[List[int]]) -> float:
         N = len(XYC)
         vs: List[Tuple[int, int, float]] = []
         for i in range(N):
@@ -40,7 +40,7 @@ def solve(N: int, M: int, XYC: List[List[int]], SXYC: List[List[int]]):
                     d *= 10
                 vs.append((i, j, d))
         uf = UnionFind(N + 1)
-        r: float = 0
+        r: float = 0.0
         for i, j, d in sorted(vs, key=lambda x:x[2]):
             if uf.find(i) != uf.find(j):
                 uf.union(i, j)
